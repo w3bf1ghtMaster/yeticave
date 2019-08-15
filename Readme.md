@@ -1,6 +1,6 @@
 # Личный проект «YetiCave»
 
-* Студент: [Anakin Skywalker].
+* Студент: [Darth Vader].
 * Наставник: `Chancellor Palpatine`.
 
 ---
