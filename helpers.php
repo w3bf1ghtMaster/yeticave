@@ -143,4 +143,12 @@ function include_template($name, array $data = []) {
     return $result;
 }
 
-
+/**
+ * Форматирует сумму, округляет до целого числа, ставит пробел после 3-х цифр с конца, добавляет знак валюты ₽.
+ * @param float $num Начальная цена
+ * @return string Итоговая цена
+ */
+function price_format(float $num = 0): string
+{
+    return $number = number_format(ceil($num), 0, '', ' ') . ' ₽';
+}
