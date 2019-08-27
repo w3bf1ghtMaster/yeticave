@@ -150,5 +150,26 @@ function include_template($name, array $data = []) {
  */
 function price_format(float $num = 0): string
 {
-    return $number = number_format(ceil($num), 0, '', ' ') . ' ₽';
+    return $number = number_format(ceil($num), null, null, ' ') . ' ₽';
+}
+
+/**
+ * Высчитывает время до конца продажи товара.
+ * @param string $dt_end Финальная дата
+ * @return array Ассоциативный массив, который показывает: дни, часы, минуты.
+ */
+function finish_to_sell(string $dt_end): array {
+    $ts_diff = strtotime($dt_end) - time();
+    $days = floor($ts_diff/86400);
+    $hours = floor($ts_diff/3600);
+    $mins = floor($ts_diff/60);
+    if ($hours < 10) {
+        $hours = 0 . $hours;
+    }
+    if ($mins < 10) {
+        $mins = 0 . $mins;
+    }
+    return ['days' => $days,
+            'hours' => $hours,
+            'mins' => $mins];
 }
