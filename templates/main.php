@@ -29,9 +29,17 @@
                             <span class="lot__amount">Стартовая цена</span>
                             <span class="lot__cost"><?=strip_tags(price_format($card['price']));?></span>
                         </div>
-                        <div class="lot__timer timer">
-                            12:23
+                        <?php $time = finish_to_sell($card['final_date']);
+                        $show_time = $time['hours'] . ':' . $time['mins'];
+                        if($time['days'] < 1 && $time['hours'] < 1 ) : ?>
+                        <div class="lot__timer timer--finishing">
+                            <?=$show_time?>
                         </div>
+                        <?php else : ?>
+                        <div class="lot__timer timer">
+                            <?=$show_time?>
+                        </div>
+                        <?php endif ?>
                     </div>
                 </div>
             </li>
